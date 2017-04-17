@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta charset="UTF-8">
+    <title>BookAppointments</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        li:last-child {
+            border-right: none;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {background-color: transparent}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        li a:hover:not(.active) {
+            background-color: transparent;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+        h2{
+            font-family: "Microsoft Himalaya";
+            font-size:38px;
+            color: #0d47a1;
+        }
+        p{
+            color: #0d47a1;
+        }
+        h3{
+            line-height: 1px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <br class="site-header">
+    <div class="logo">
+        <center><img src="https://nndc.org/wp-content/uploads/2016/10/Mayo-Clinic.gif" alt="Mayo Heath" style="width:500px;height:125px;"></center>
+    </div>
+    <div class="mainmenu">
+        <div class="navbar">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="fw-icon-th-list"></i>
+            </a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="Home1.html">Home</a></li>
+                    <li><a href="GoogleMeds.html">Hosp, Clinics and Pharmacies near by</a></li>
+                    <li class="dropdown"><a class="active" href="javascript:void(0)" class="dropbtn">Doctors Available</a>
+                        <div class="dropdown-content">
+                            <a href="BookAppointment.html">Book an Appointment</a>
+                            <a href="BookAppointment1.html">Chat with Doctor</a>
+                        </div></li>
+                    <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">My Health</a>
+                        <div class="dropdown-content">
+                            <a href="doctor1.html">Health History</a>
+                            <a href="">Health Status</a>
+                        </div> </li>
+                    <li style="float:right"><a class="active" href="Index.html">Logout</a></li>
+                    <li><a href="https://www.google.com/webhp?sourceid=chrome-instant&rlz=1C1JZAP_enUS712US712&ion=1&espv=2&ie=UTF-8#q=emergency+contact+number+mayo+clinic">Emergency Contact</a></li>
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <h2>Appointments at Mayo Clinic:</h2>
+    <h3 style="color: black;font-size: 30px"><u>Doctors Available</u></h3>
+    <p style="font-size: 20px">Dr. Anjali</p>
+    MBBS,MD &amp; Psychiatrist &nbsp; &nbsp; &nbsp
+    <br>Neuro Psychiatrist</br>
+    <div class="span5">
+        <div class="block">
+            <a href="BookAppointment1.html" class="button" type="submit" value="submit">Book Appointment</></a>
+        </div></div
+    <br><p style="font-size: 20px">Dr. Louis</p>
+    MBBS,MD &amp;<br> Primary Care Doctor &nbsp; &nbsp; &nbsp;</br>
+    <div class="span5">
+        <div class="block">
+            <a href="BookAppointment1.html" class="button" type="submit" value="submit">Book Appointment</></a>
+        </div></div
+
+    <br><p style="font-size: 20px">Mini R Abraham, MD</p>
+    Endocrinology/Diabetes/Metabolism &amp;<br> Primary Care Doctor &nbsp; &nbsp; &nbsp;</br>
+    <div class="span5">
+        <div class="block">
+            <a href="BookAppointment1.html" class="button" type="submit" value="submit">Book Appointment</></a>
+        </div></div
+    <br><p style="font-size: 20px">Stanley L Anderson, MD</p>
+    Obstetrics & Gynecology <br>  &nbsp; &nbsp; &nbsp;</br>
+    <div class="span5">
+        <div class="block">
+        <a href="BookAppointment1.html" class="button" type="submit" value="submit">Book Appointment</></a>
+    </div></div>
+
+
+
+
+
+
+
+</div>
+
+</div>
+</body>
+</html>

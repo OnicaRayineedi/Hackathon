@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <title>Home1</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+            border-right:1px solid #bbb;
+        }
+
+        li:last-child {
+            border-right: none;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {background-color: transparent}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        li a:hover:not(.active) {
+            background-color: transparent;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="site-header">
+        <div class="logo">
+            <center><img src="https://nndc.org/wp-content/uploads/2016/10/Mayo-Clinic.gif" alt="Mayo Heath" style="width:500px;height:125px;"></center>
+        </div>
+        <div class="mainmenu">
+            <div class="navbar">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <i class="fw-icon-th-list"></i>
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="Doctorhome1.html">Home</a></li>
+                        <li><a href="GoogleMeds.html">Hosp, Clinics and Pharmacies near by</a></li>
+                        <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Patients</a>
+                            <div class="dropdown-content">
+                                <a href="patient.html">Patient List</a>
+                                <a href="Patientrecords.html.html">Patient Records</a>
+                            </div></li>
+                        <li><a href="Appointments.html">Appointments</a></li>
+                        <li style="float:right"><a class="active" href="Index1.html">Logout</a></li>
+
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <embed src="video.mp4" autostart="true" height="350" width="1200"  />
+</div>
+</body>
+</html>

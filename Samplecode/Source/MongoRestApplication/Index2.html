@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"> -->
+    <meta name="google-signin-client_id" content="616150883911-mbcq2c2r4gk4o2n9bjg7skc8r71qb45t.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <style>
+        body {
+            background-image: url("http://wallpapercave.com/wp/wp1828770.jpg");
+            background-size: 1200px 560px;
+            background-repeat: repeat-x;
+            font-family: 'Aclonica';
+            font-size: 22px;
+            line-height: 60%;
+        }
+        form-group{
+            background-color: transparent;
+        }
+    </style>
+
+    <script>
+        function check()
+        {
+
+            var storedName = localStorage.getItem('username');
+            var storedPw = localStorage.getItem('password');
+
+            var UserName = document.getElementById('username');
+            var PassWord = document.getElementById('password');
+            //alert("yo");
+            if(UserName.value == storedName && PassWord.value == storedPw) {
+
+                alert("Successful");
+                window.location="Home1.html";
+
+
+            }else {
+
+                alert('Invalid Credentials. Please Re-Enter valid credentials');
+            }
+        }
+
+
+    </script>
+
+
+
+    <!--<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1901859373396420";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>-->
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Website CSS style -->
+    <link rel="stylesheet" type="text/css" href="CSS/Main.css">
+
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+
+    <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+
+    <title>Login Page</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+
+                <h1 class="title" style="font-family: Aclonica">MAYO HEALTH</h1>
+                <hr />
+            </div>
+        </div>
+        <div class="main-login main-center">
+            <br class="form-horizontal" method="post">
+            <div class="form-group">
+                <label for="EmpID" class="cols-sm-2 control-label">EmpID</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" name="EmpID" id="EmpID"  required="required" placeholder="Enter your ID"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="cols-sm-2 control-label">Password</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        <input type="password" class="form-control" name="password" id="password"  required="required" placeholder="Enter your Password"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <!--<input type="submit" class="btn btn-primary btn-lg btn-block login-button" name="Login" value="Login" id="Login" onclick="check()"></input>-->
+                <input type="button" class="btn btn-primary btn-lg btn-block login-button" value="Login" onclick="check()"></input>
+            </div>
+
+            <br>
+
+            <!--<div class="fb-login-button" style="margin-left: 90px;" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>-->
+
+            <div style="margin-left: 70px;"
+                 class="g-signin2"
+                 data-onsuccess="onSignIn"
+                 data-scope="https://www.googleapis.com/auth/plus.login"
+                 data-accesstype="offline"
+
+                 data-redirecturi="http://localhost:63342/FettleUp/Home.html">
+
+            </div>
+            <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>-->
+
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

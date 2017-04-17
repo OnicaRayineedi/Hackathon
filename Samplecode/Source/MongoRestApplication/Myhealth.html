@@ -1,0 +1,223 @@
+<html ng-app="demoMongo" ng-controller="MongoRestController">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Patient Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="manifest" href="/manifest.json">
+
+    <noscript>
+        <style>
+            .city-dropdown-country-container {
+                clear: both;
+            }
+            .city-dropdown-activator {
+                display: none !important;
+            }
+            .no-js-city-landing-link {
+                width: 70%;
+                margin: 0 auto;
+            }
+            .no-js-city-landing-link h4 {
+                text-align: center;
+                color: #ff005b;
+            }
+            .no-js-city-landing-link .city-dropdown-option {
+                display: inline-block;
+                color: #7c8f99;
+                padding: 5px 10px;
+                text-align: center;
+            }
+            .no-js-city-landing-link .city-dropdown-top-cities-container {
+                margin: 25px 15px 25px 0;
+            }
+            #seoInfoText{
+                cursor:default;
+            }
+            .searchFormHideState{
+                display:block;
+            }
+            #seoInfoText > p.seo-info-head{
+                background-image:none;
+            }
+            .calendarDivs{
+                display: block;
+            }
+            .hideifnojs{
+                display:none !important;
+            }
+            .showifnojs{
+                display:block;
+            }
+        </style>
+    </noscript>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+
+
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaCbsBeOoFSc1z0LNPA5dV2O1pWyIGKX8&libraries=places"></script>
+</head>
+<body>
+
+<!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+<div class="container">
+    <div class="site-header">
+        <div class="logo">
+            <h1>FettleUp</h1>
+        </div>
+        <div class="menu">
+            <div class="navbar">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <i class="fw-icon-th-list"></i>
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="Home.html">Home</a></li>
+                        <li><a href="Consultation.html">Consultation</a></li>
+                        <li><a href="http://localhost:3000">Say Hello</a></li>
+                        <li><a href="Myhealth.html">My Health</a></li>
+                        <li><a href="GoogleMeds.html">Google Meds</a></li>
+                        <li><a href="Index1.html">Logout</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="featured-content">
+        <div class="row-fluid">
+            <div id="booking-appointment-form" class="col-md-7 nopadding">
+                <div class="span5">
+                    <h2 class="u-text-light" itemprop="name">Patient details</h2>
+                    <div id="medical-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
+                    <form class="nobottommargin" id="template-medical-form" name="templatemedicalform" ng-submit="insertData()"  method="post">
+                        <div class="col_two_third">
+                            <label for="template-medical-name"> Enter patient Name:</label>
+                            <input type="text" id="template-medical-name" name="template-medical-name"  ng-model="formData.fname" class="form-control not-dark required" >
+                        </div>
+                        <div class="col_one_third col_last">
+                            <label for="template-medical-phone"> Enter Phonenumber:</label>
+                            <input type="text" id="template-medical-phone" name="templatemedicalphone" ng-model="formData.pno" class="form-control not-dark required"  onblur="validate()">
+                        </div>
+                        <div class="clear"></div>
+                        <div class="col_two_third">
+                            <label for="template-medical-email">Enter Email Address:</label>
+                            <input type="email" id="template-medical-email" name="templatemedicalemail" ng-model="formData.email" class="form-control not-dark required"   onblur="ValidateEmail()">
+                        </div>
+                        <div class="col_one_third col_last">
+                            <label for="template-medical-dob">Enter Age:</label>
+                            <input type="text" id="template-medical-dob" name="templatemedicaldob" class="form-control not-dark required" ng-model="formData.age"  onblur="validateage()">
+                        </div>
+                        <div class="clear"></div>
+
+                        <div class="col_three_fifth nobottommargin col_last">
+                            <label for="template-medical-message">Enter disease symptoms:</label>
+                            <textarea id="template-medical-message" name="template-medical-message" ng-model="formData.msg" class="form-control not-dark required" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="clear"></div>
+
+                        <div class="span5">
+                            <div class="block" align="center">
+                                <input type="submit" class="btn" name="Upload" onclick="upload()"  value="Upload"/>
+
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                   <!-- <script>
+                        function upload() {
+                            alert("successfully uploaded");
+                            window.location.href = "home.html";
+                        }
+                        function ValidateEmail()
+                        {
+                            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                            if(templatemedicalform.templatemedicalemail.value.match(mailformat))
+                            {
+                                document.templatemedicalform.templatemedicalemail.focus();
+                                return true;
+                            }
+                            else
+                            {
+                                alert("You have entered an invalid email address!");
+                                window.location="Myhealth.html";
+                                return false;
+                            }
+                        }
+                        function validate()
+                        {
+                            var phoneno = /^\d{10}$/;
+                            if(templatemedicalform.templatemedicalphone.value.match(phoneno))
+                            {
+                                document.templatemedicalform.templatemedicalphone.focus();
+                                return true;
+                            }
+                            else
+                            {
+                                alert("enter proper format");
+                                window.location="Myhealth.html";
+                            }
+
+                        }
+                        function validateage()
+                        {
+                            var age1 = /^\d{1,2}$/;
+                                if (templatemedicalform.templatemedicaldob.value.match(age1))
+                                {
+                                    document.templatemedicalform.templatemedicaldob.focus();
+                                    return true;
+                                }
+                                else {
+                                    alert("enter age between 0 to 100");
+                                    window.location = "Myhealth.html";
+                                }
+                        }
+
+                    </script>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container">
+    <div class="copy-rights">
+        Copyright(c) website name.  <strong>Designed by:<a href="http://www.fettleup.com">www.fettleup.com</a> </strong>
+    </div>
+</div>
+
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    $('#myCarousel').carousel({
+        interval: 1800
+    });
+</script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+<script src="JS/index.js"></script>
+
+<script>
+    function upload() {
+        alert("successfully uploaded");
+        window.location.href = "Home.html";
+    }
+</script>
+</body>
+</html>

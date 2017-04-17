@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url("http://wallpapercave.com/wp/wp1828770.jpg");
+            background-size: 1200px 560px;
+            background-repeat: repeat-x;
+            font-family: 'Aclonica';
+            font-size: 18px;
+        }
+        form-group{
+            background-color: transparent;
+        }
+    </style>
+    <!--<script>
+        function validation()
+        {
+            if (localStorage) {
+                form = document.forms["regform"];
+                var p = form["name"].value;
+                var q = form["email"].value;
+                var r = form["username"].value;
+                var s = form["password"].value;
+                var t = form["cpassword"].value;
+                //name validation
+                localStorage.setItem('Name', p);
+                localStorage.setItem('Email', q);
+                localStorage.setItem('Username', r);
+                localStorage.setItem('Password', s);
+                localStorage.setItem('cPassword', t);
+                return true;
+            }
+        }
+    </script>-->
+
+    <script type="text/javascript">
+        function store(){
+            var inputName= document.getElementById("name");
+            var inputEmail= document.getElementById("email");
+            var inputUsername= document.getElementById("username");
+            var inputPassword= document.getElementById("password");
+            var inputcPassword= document.getElementById("cpassword");
+            localStorage.setItem("name", inputName.value);
+            localStorage.setItem("email", inputEmail.value);
+            localStorage.setItem("username", inputUsername.value);
+            localStorage.setItem("password", inputPassword.value);
+            localStorage.setItem("cpassword", inputcPassword.value);
+        }
+        function myFunction() {
+            var pass = document.getElementById("password").value;
+            var passconf = document.getElementById("cpassword").value;
+            var ok = true;
+            if (pass != passconf) {
+                //alert("Passwords Do not match");
+                alert("Passwords are not Matched!!!");
+                document.getElementById("password").style.borderColor = "#E34234";
+                document.getElementById("cpassword").style.borderColor = "#E34234";
+                ok = false;
+            }
+
+
+
+        }
+        function validate() {
+            if(form.password.value.length<8)
+            {
+                document.getElementById("errfn").innerHTML="enter maximum of 8 characters ";
+            }
+        }
+        function ValidateEmail(inputText)
+        {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if(inputText.value.match(mailformat))
+            {
+                document.form.email.focus();
+                return true;
+            }
+            else
+            {
+                alert("You have entered an invalid email address!");
+                window.location="Home.html";
+                return false;
+            }
+        }
+
+
+    </script>
+
+    <!-- Website CSS style -->
+    <link rel="stylesheet" type="text/css" href="CSS/Main.css">
+
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Google Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+
+    <title>Register Page</title>
+</head>
+<body>
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title" style="font-family: Aclonica">MAYO HEALTH</h1>
+                <hr />
+            </div>
+        </div>
+        <div class="main-login main-center">
+            <form class="form-horizontal" method="post"  name="form">
+                <div class="login-register">
+                    Doctor?<a href="DoctorRegister.html">Register Here</a>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" onblur="validate()"/>
+                        </div>
+                    </div>
+                    <div id="errfn">   </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpassword" class="cols-sm-2 control-label">Confirm Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="form-control" name="cpassword" id="cpassword"  placeholder="Confirm your Password"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <a href="Index.html"><button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="myFunction();store();ValidateEmail(document.form.email)" action="index.html">Register</button></a>
+                </div>
+                <div class="login-register">
+                    <a href="Index.html">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <script type="text/javascript" src="assets/js/bootstrap.js"></script> -->
+</body>
+</html>
